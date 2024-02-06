@@ -27,10 +27,11 @@ function isEven(num){
 }
 
 
+
+// script per il gioco di Pari e Dispari
 document.querySelector("#btn-play").addEventListener("click", 
     function(){
         const resultEl= document.querySelector("#resultPOD");
-
 
         // scelta utente di pari o displari
         const userChoice = document.querySelector("#choice").value;
@@ -38,28 +39,33 @@ document.querySelector("#btn-play").addEventListener("click",
         // scelta numero dell'utente
         const userNumber = Number(document.querySelector("#number").value);
         
-        
-        const cpuNumber = randomNumber_1_5();
-        
-        console.log(cpuNumber);
-        
-        const sum = userNumber + cpuNumber;
-        
-        resultEl.innerText = "La somma dei due numeri è: "+ sum;
-        
-        if(isEven(sum)){
-            if(userChoice == "pari"){
-                resultEl.innerText += ". E' uscito pari ed hai vinto";
+        if(userNumber > 0 && userNumber <=5 ){
+            
+            const cpuNumber = randomNumber_1_5();
+            
+            console.log(cpuNumber);
+            
+            const sum = userNumber + cpuNumber;
+            
+            resultEl.innerText = "La somma dei due numeri è: "+ sum;
+            
+            if(isEven(sum)){
+                if(userChoice == "pari"){
+                    resultEl.innerText += ". E' uscito pari ed hai vinto";
+                }else{
+                    resultEl.innerText += ". E' uscito pari ed hai perso";
+                }
             }else{
-                resultEl.innerText += ". E' uscito pari ed hai perso";
+                if(userChoice == "dispari"){
+                    resultEl.innerText += ". E' uscito dispari ed hai vinto";
+                }else{
+                    resultEl.innerText += ". E' uscito dispari ed hai perso";
+                }
+            
             }
+
         }else{
-            if(userChoice == "dispari"){
-                resultEl.innerText += ". E' uscito dispari ed hai vinto";
-            }else{
-                resultEl.innerText += ". E' uscito dispari ed hai perso";
-            }
-        
+            alert("Numero inserito non valido...Inserisci un numero compreso da 1 a 5");
         }
 
     }    
