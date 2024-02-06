@@ -27,27 +27,41 @@ function isEven(num){
 }
 
 
+document.querySelector("#btn-play").addEventListener("click", 
+    function(){
+        const resultEl= document.querySelector("#result");
 
 
-// scelta utente di pari o displari
-const userChoice = "pari";
+        // scelta utente di pari o displari
+        const userChoice = document.querySelector("#choice").value;
+        
+        // scelta numero dell'utente
+        const userNumber = Number(document.querySelector("#number").value);
+        
+        
+        const cpuNumber = randomNumber_1_5();
+        
+        console.log(cpuNumber);
+        
+        const sum = userNumber + cpuNumber;
+        
+        resultEl.innerText = "La somma dei due numeri è: "+ sum;
+        
+        if(isEven(sum)){
+            if(userChoice == "pari"){
+                resultEl.innerText += ". E' uscito pari ed hai vinto";
+            }else{
+                resultEl.innerText += ". E' uscito pari ed hai perso";
+            }
+        }else{
+            if(userChoice == "dispari"){
+                resultEl.innerText += ". E' uscito dispari ed hai vinto";
+            }else{
+                resultEl.innerText += ". E' uscito dispari ed hai perso";
+            }
+        
+        }
 
-// scelta numero dell'utente
-const userNumber = 3;
+    }    
 
-
-const cpuNumber = randomNumber_1_5();
-
-console.log(cpuNumber);
-
-const sum = userNumber + cpuNumber;
-
-console.log(sum);
-
-if(isEven(sum)){
-    console.log("è uscito pari");
-}else{
-    console.log("è uscito dispari");
-
-}
-
+)    
