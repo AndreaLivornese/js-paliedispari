@@ -29,7 +29,7 @@ function isEven(num){
 
 document.querySelector("#btn-play").addEventListener("click", 
     function(){
-        const resultEl= document.querySelector("#result");
+        const resultEl= document.querySelector("#resultPOD");
 
 
         // scelta utente di pari o displari
@@ -100,12 +100,14 @@ function isPalindrome(word){
 document.querySelector("#btn-check").addEventListener("click",
     function(){
 
+        const resultEl= document.querySelector("#resultPAL");
+
         const word = document.querySelector("#word").value;
 
         if(isPalindrome(word)){
-            console.log("è palindromo");
+            resultEl.innerText= "La parola "+ word + " è palindroma";
         }else{
-            console.log("non è palindromo");
+            resultEl.innerText= "La parola "+ word + " non è palindroma";
         }
 
 
